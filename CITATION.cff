@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+authors:
+  - family-names: Norris
+    given-names: Alice
+    orcid: https://orcid.org/0000-0001-9669-2360
+title: "CS-320-Project-One"
+version: 1.0.0
+date-released: 2022-02-21
