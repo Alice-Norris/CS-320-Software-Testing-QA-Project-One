@@ -16,7 +16,10 @@ public class ContactServiceTest {
     private static ContactService service;
 
     //array of strings to hold test values
-    static String[] params;
+    static String firstName;
+    static String lastName;
+    static String phoneNum;
+    static String address;
 
     //setup service at the beginning
     @BeforeAll
@@ -27,7 +30,10 @@ public class ContactServiceTest {
     //reset parameters to valid input before each test
     @BeforeEach
     void setUpParameters() {
-        params = new String[]{"Jane", "Doe", "5558675309", "123 District Street"};
+        firstName = "Jane";
+        lastName = "Doe";
+        phoneNum = "5558675309";
+        address = "123 District Street";
     }
     //since the service only takes input, no output tests will be written
     //grouping valid tests
@@ -39,7 +45,7 @@ public class ContactServiceTest {
         //test of addContact() method with valid input
         @Test
         void testAddContactValid() {
-            Contact newContact = service.addContact(params[0], params[1], params[2], params[3]);
+            Contact newContact = service.addContact(firstName, lastName, phoneNum, address);
             Assertions.assertAll(() -> Assertions.assertEquals("Jane", newContact.getFirstName()),
                                  () -> Assertions.assertEquals("Doe", newContact.getLastName()),
                                  () -> Assertions.assertEquals("5558675309", newContact.getPhoneNum()),
@@ -50,7 +56,7 @@ public class ContactServiceTest {
         //test of deleteContact() method with valid input
         @Test
         void testDeleteContactValid() {
-            testContact = service.addContact(params[0], params[1], params[2], params[3]);
+            testContact = service.addContact(firstName, lastName, phoneNum, address);
             String contactId = testContact.getContactId();
             Assertions.assertTrue(service.deleteContact(contactId));
         }
@@ -69,7 +75,7 @@ public class ContactServiceTest {
             //before each test, add a new contact to the service
             @BeforeEach
             void addContactToService(){
-                testContact = service.addContact(params[0], params[1], params[2], params[3]);
+                testContact = service.addContact(firstName, lastName, phoneNum, address);
                 contactId = testContact.getContactId();
             }
 
@@ -121,8 +127,8 @@ public class ContactServiceTest {
             //invalid first name test for addContact() method
             @Test
             void testaddContactFirstName(){
-                Exception illegalArgumentFirstNameNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(null, params[1], params[2], params[3]));
-                Exception illegalArgumentFirstNameTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact("JaneJaneJane", params[1], params[2], params[3]));
+                Exception illegalArgumentFirstNameNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(null, lastName, phoneNum, address));
+                Exception illegalArgumentFirstNameTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact("JaneJaneJane", lastName, phoneNum, address));
                 String message = "First name invalid, must be a String of ten characters or less!";
                 Assertions.assertAll(() -> Assertions.assertEquals(message, illegalArgumentFirstNameNull.getMessage()),
                                      () -> Assertions.assertEquals(message, illegalArgumentFirstNameTooLong.getMessage())
@@ -132,8 +138,8 @@ public class ContactServiceTest {
             //invalid last name test for addContact() method
             @Test
             void testAddContactLastName(){
-                Exception illegalArgumentLastNameNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(params[0], null, params[2], params[3]));
-                Exception illegalArgumentLastNameTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(params[0], "DoeDoeDoeDoe", params[2], params[3]));
+                Exception illegalArgumentLastNameNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(firstName, null, phoneNum, address));
+                Exception illegalArgumentLastNameTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(firstName, "DoeDoeDoeDoe", phoneNum, address));
                 String message = "Last name invalid, must be a String of ten characters or less!";
                 Assertions.assertAll(() -> Assertions.assertEquals(message, illegalArgumentLastNameNull.getMessage()),
                                      () -> Assertions.assertEquals(message, illegalArgumentLastNameTooLong.getMessage())
@@ -144,9 +150,9 @@ public class ContactServiceTest {
             //invalid phone number for addContact() method
             @Test
             void testAddContactPhoneNum(){
-                Exception illegalArgumentPhoneNumNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(params[0], params[1], null, params[3]));
-                Exception illegalArgumentPhoneNumTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(params[0], params[1], "12345678901", params[3]));
-                Exception IllegalArgumentPhoneNumTooShort = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(params[0], params[1], "123456789", params[3]));
+                Exception illegalArgumentPhoneNumNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(firstName, lastName, null, address));
+                Exception illegalArgumentPhoneNumTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(firstName, lastName, "12345678901", address));
+                Exception IllegalArgumentPhoneNumTooShort = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(firstName, lastName, "123456789", address));
                 String message = "Phone number invalid, must be exactly ten characters!";
                 Assertions.assertAll(() -> Assertions.assertEquals(message, illegalArgumentPhoneNumNull.getMessage()),
                                      () -> Assertions.assertEquals(message, illegalArgumentPhoneNumTooLong.getMessage()),
@@ -157,8 +163,8 @@ public class ContactServiceTest {
             //invalid address test for the addContact() method
             @Test 
             void testAddContactAddress(){
-                Exception illegalArgumentAddressNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(params[0], params[1], params[2], null));
-                Exception illegalArgumentAddressTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(params[0], params[1], params[2], params[3].repeat(2)));
+                Exception illegalArgumentAddressNull = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(firstName, lastName, phoneNum, null));
+                Exception illegalArgumentAddressTooLong = Assertions.assertThrows(IllegalArgumentException.class, () -> service.addContact(firstName, lastName, phoneNum, address.repeat(2)));
                 String message = "Address invalid, must be a String of thirty characters or less!";
                 Assertions.assertAll(() -> Assertions.assertEquals(message, illegalArgumentAddressNull.getMessage()),
                                      () -> Assertions.assertEquals(message, illegalArgumentAddressTooLong.getMessage())
@@ -186,7 +192,7 @@ public class ContactServiceTest {
             @BeforeAll
             
             void setUp(){
-                testContact = service.addContact(params[0], params[1], params[2], params[3]);
+                testContact = service.addContact(firstName, lastName, phoneNum, address);
                 contactId = testContact.getContactId();
             }
 
