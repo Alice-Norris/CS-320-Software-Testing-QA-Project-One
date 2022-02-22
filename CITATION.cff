@@ -1,8 +1,12 @@
 cff-version: 1.2.0
+title: CS320-Project-One
+message: Please cite this software using these metadata.
+type: software
 authors:
-  - family-names: Norris
-    given-names: Alice
-    orcid: https://orcid.org/0000-0001-9669-2360
-title: "CS-320-Project-One"
-version: 1.0.0
-date-released: 2022-02-21
+  - given-names: Alice
+    family-names: Norris
+    email: alice-norris@snhu.edu
+    affiliation: SNHU
+    orcid: 'https://orcid.org/0000-0001-9669-2360'
+repository-code: 'https://github.com/Alice-Norris/CS-320-Project-One'
+date-released: '2022-02-21'
