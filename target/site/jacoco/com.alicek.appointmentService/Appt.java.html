@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Appt.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectone</a> &gt; <a href="index.source.html" class="el_package">com.alicek.appointmentService</a> &gt; <span class="el_source">Appt.java</span></div><h1>Appt.java</h1><pre class="source lang-java linenums">package com.alicek.appointmentService;
+import java.util.Date;
+
+public class Appt {
+    //private fields for appts
+    private String apptId;
+    private Date apptDate;
+    private String apptDesc;
+    
+    //Constructor for appt objects. Takes a string from user input (apptDesc),
+    //an appt ID from the service's generateApptId(), and a Date object
+<span class="fc" id="L12">    public Appt(Date apptDate, String apptDesc, String apptId) {</span>
+
+        //using setter validation in constructor
+<span class="fc" id="L15">        this.setApptDate(apptDate);</span>
+<span class="fc" id="L16">        this.setApptDesc(apptDesc);</span>
+        
+        //no setter, apptId must not be null, less than 10 characters, and its Long value positive
+<span class="fc bfc" id="L19" title="All 6 branches covered.">        if (apptId == null || apptId.length() &gt; 10 || Long.parseLong(apptId, 36) &lt; 0) {</span>
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;Invalid Appointment ID! Must be a positive ID string of 10 characters or less.&quot;);</span>
+        }
+<span class="fc" id="L22">        this.apptId = apptId;</span>
+<span class="fc" id="L23">    }</span>
+
+    //Getters and setters follow past this point
+    //All setters check for valid input, to ensure that an appointment isn't updated with invalid data.
+    
+    public Date getApptDate() {
+<span class="fc" id="L29">        return this.apptDate;</span>
+    }
+    
+    public void setApptDate(Date apptDate) {
+<span class="fc bfc" id="L33" title="All 4 branches covered.">        if (apptDate == null || apptDate.before(new Date())){</span>
+<span class="fc" id="L34">            throw new IllegalArgumentException(&quot;Appointment Date must not be null or in the past!&quot;);</span>
+        }
+<span class="fc" id="L36">        this.apptDate = apptDate;</span>
+<span class="fc" id="L37">    }</span>
+    public String getApptDesc() {
+<span class="fc" id="L39">        return this.apptDesc;</span>
+    }
+    
+    public void setApptDesc(String apptDesc) {
+<span class="fc bfc" id="L43" title="All 4 branches covered.">        if (apptDesc == null || apptDesc.length() &gt; 50) {</span>
+<span class="fc" id="L44">            throw new IllegalArgumentException(&quot;Invalid Appointment Description! Must be a string of 50 characters or less!&quot;);</span>
+        }
+<span class="fc" id="L46">        this.apptDesc = apptDesc;</span>
+<span class="fc" id="L47">    }</span>
+    
+    public String getApptId() {
+<span class="fc" id="L50">        return this.apptId;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

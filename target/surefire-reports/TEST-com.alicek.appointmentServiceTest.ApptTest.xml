@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.alicek.appointmentServiceTest.ApptTest" time="0.002" tests="11" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="c:\Users\zakn\Documents\SNHU\Software Test Automation &amp; QA\6-1 Project One\projectDuplicate\projectone\target\test-classes;c:\Users\zakn\Documents\SNHU\Software Test Automation &amp; QA\6-1 Project One\projectDuplicate\projectone\target\classes;C:\Users\zakn\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\zakn\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\zakn\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\zakn\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\zakn\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\zakn\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\zakn\AppData\Local\Temp\surefire11180310804321099351\surefirebooter5571611728268179428.jar C:\Users\zakn\AppData\Local\Temp\surefire11180310804321099351 2022-02-21T18-27-40_983-jvmRun1 surefire13360326880149205869tmp surefire_010221774509087311635tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="c:\Users\zakn\Documents\SNHU\Software Test Automation &amp; QA\6-1 Project One\projectDuplicate\projectone\target\test-classes;c:\Users\zakn\Documents\SNHU\Software Test Automation &amp; QA\6-1 Project One\projectDuplicate\projectone\target\classes;C:\Users\zakn\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\zakn\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\zakn\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\zakn\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\zakn\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\zakn\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\zakn"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2021-10-19"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17.0.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="c:\Users\zakn\Documents\SNHU\Software Test Automation &amp; QA\6-1 Project One\projectDuplicate\projectone"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\zakn\AppData\Local\Temp\surefire11180310804321099351\surefirebooter5571611728268179428.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.1+12-LTS-39"/>
+    <property name="user.name" value="alicek"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\zakn\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\zakn\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.1"/>
+    <property name="user.dir" value="c:\Users\zakn\Documents\SNHU\Software Test Automation &amp; QA\6-1 Project One\projectDuplicate\projectone"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Users\zakn\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\zakn\AppData\Roaming\nvm\v16.13.0;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\msys64\mingw64\bin;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Users\zakn\AppData\Local\Microsoft\WindowsApps;C:\Users\zakn\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\zakn\.dotnet\tools;C:\Users\zakn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39;C:\Users\zakn\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\Scripts;C:\Program Files\Inkscape\bin;C:\Users\zakn\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\zakn\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\zakn\AppData\Roaming\npm;C:\Users\zakn\Documents\Projects\Cryengine-Converter\cgf-converter\bin\Release\net5.0\win-x64\;C:\Users\zakn\AppData\Local\maven\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.1+12-LTS-39"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testApptConstructorValidInput" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests" time="0"/>
+  <testcase name="testGetApptDate" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$OutputTests" time="0"/>
+  <testcase name="testGetApptDesc" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$OutputTests" time="0"/>
+  <testcase name="testGetApptId" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$OutputTests" time="0"/>
+  <testcase name="testApptConstructorExceptionApptId" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$apptConstructorNonvalidInputTests" time="0"/>
+  <testcase name="testApptConstructorExceptionApptDate" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$apptConstructorNonvalidInputTests" time="0"/>
+  <testcase name="testApptConstructorExceptionApptDesc" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$apptConstructorNonvalidInputTests" time="0"/>
+  <testcase name="testSetApptDescNonValid" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$apptConstructorNonvalidInputTests$nonvalidSetterTests" time="0"/>
+  <testcase name="testsetApptDateNonvalid" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$NonValidInputTests$apptConstructorNonvalidInputTests$nonvalidSetterTests" time="0"/>
+  <testcase name="testSetApptDate" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$ValidSetterTests" time="0"/>
+  <testcase name="testSetApptDesc" classname="com.alicek.appointmentServiceTest.ApptTest$ValidInputTests$ValidSetterTests" time="0"/>
+</testsuite>

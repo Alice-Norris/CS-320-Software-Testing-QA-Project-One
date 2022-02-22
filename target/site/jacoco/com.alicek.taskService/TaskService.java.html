@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaskService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectone</a> &gt; <a href="index.source.html" class="el_package">com.alicek.taskService</a> &gt; <span class="el_source">TaskService.java</span></div><h1>TaskService.java</h1><pre class="source lang-java linenums">package com.alicek.taskService;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.stream.LongStream;
+
+//Task service meant to provide creation, update, and deletion of tasks
+<span class="fc" id="L7">public class TaskService {</span>
+    
+    //in-memory task storage
+<span class="fc" id="L10">    HashMap&lt;String, Task&gt; tasks = new HashMap&lt;String, Task&gt;();</span>
+
+    //create LongStream of random Longs within the bounds. The upper bound is the max decimal number
+    //that can be represented by an alphanumeric (base 36) number.
+<span class="fc" id="L14">    LongStream apptIdLongGenerator = new Random().longs(0L, 3656158440062975L);</span>
+
+    private String generateTaskId() {
+        while(true){
+            //create LongStream of random Longs within the bounds. The upper bound is the max decimal number
+            //that can be represented by an alphanumeric (base 36) number.
+<span class="fc" id="L20">            LongStream apptIdLongGenerator = new Random().longs(0L, 3656158440062975L);</span>
+
+            //get the first stable result of the generator as a Long type.
+<span class="fc" id="L23">            Long taskIdLong = apptIdLongGenerator.findFirst().getAsLong();</span>
+<span class="fc" id="L24">            String taskId = Long.toString(taskIdLong, 36);</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">            if (!tasks.containsKey(taskId)){</span>
+<span class="fc" id="L26">                return taskId;</span>
+            }
+<span class="nc" id="L28">        }</span>
+    }
+
+    //method for adding a Task. Takes three strings, only two of which are supplied by user input
+    public Task addTask(String taskName, String taskDesc) {
+<span class="fc" id="L33">        String taskId = this.generateTaskId();</span>
+<span class="fc" id="L34">        Task addedTask = new Task(taskName, taskDesc, taskId);</span>
+<span class="fc" id="L35">        tasks.put(taskId, addedTask);</span>
+<span class="fc" id="L36">        return addedTask;</span>
+    }
+
+    //Method used to test tasks ids and ensure they both are valid and exist in the task hashmap
+    private void testTaskId(String taskId){
+
+        //throw an exception if the taskId isn't found in memory.
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (!tasks.containsKey(taskId)) {</span>
+<span class="fc" id="L44">            throw new IllegalArgumentException(&quot;Task ID not found in memory!&quot;);</span>
+        }
+
+<span class="fc" id="L47">    }</span>
+
+    //Method used to delete a task from in-memory storage (hashmap)
+    //tests task ID first, so exception is thrown if necessary.
+    //returns &quot;true&quot; if task was deleted and &quot;false&quot; if not.
+    public Boolean deleteTask(String taskId) {
+<span class="fc" id="L53">        Boolean deleted = false;</span>
+<span class="fc" id="L54">        testTaskId(taskId);  </span>
+<span class="fc" id="L55">        tasks.remove(taskId);</span>
+
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (tasks.containsKey(taskId) == false){</span>
+<span class="fc" id="L58">            deleted = true;</span>
+        }
+<span class="fc" id="L60">        return deleted;</span>
+    
+    }
+
+    //Method used to update tasks. Throws an error if a supplied action isn't supported.
+    public String updateTask(String taskId, String parameter, String newValue){
+<span class="fc" id="L66">        testTaskId(taskId);</span>
+<span class="fc" id="L67">        Task task = tasks.get(taskId);</span>
+<span class="pc bpc" id="L68" title="1 of 3 branches missed.">        switch (parameter){</span>
+            case &quot;name&quot;:
+<span class="fc" id="L70">                task.setTaskName(newValue);</span>
+<span class="fc" id="L71">                return task.getTaskName();</span>
+            case &quot;desc&quot;:
+<span class="fc" id="L73">                task.setTaskDesc(newValue);</span>
+<span class="fc" id="L74">                return task.getTaskDesc();</span>
+            default:
+<span class="nc" id="L76">                throw new IllegalArgumentException(String.format(</span>
+                    &quot;Invalid parameter given to modify. Expected 'task' or 'desc', got %s&quot;, parameter));
+        }
+
+    }
+
+}
+    
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,6 @@
+com\alicek\appointmentService\Appt.class
+com\alicek\appointmentService\ApptService.class
+com\alicek\contactService\Contact.class
+com\alicek\taskService\TaskService.class
+com\alicek\taskService\Task.class
+com\alicek\contactService\ContactService.class

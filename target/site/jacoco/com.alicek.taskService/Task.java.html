@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Task.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectone</a> &gt; <a href="index.source.html" class="el_package">com.alicek.taskService</a> &gt; <span class="el_source">Task.java</span></div><h1>Task.java</h1><pre class="source lang-java linenums">package com.alicek.taskService;
+
+public class Task {
+    //private fields for tasks
+<span class="fc" id="L5">    private String taskId = &quot;&quot;;</span>
+<span class="fc" id="L6">    private String taskName = &quot;&quot;;</span>
+<span class="fc" id="L7">    private String taskDesc = &quot;&quot;;</span>
+    
+    //Constructor for task objects. Takes two strings from user input (taskName and taskDesc),
+    //and the task ID from service's generateTaskId()
+<span class="fc" id="L11">    public Task(String taskName, String taskDesc, String taskId) {</span>
+
+        //using setter validation in constructor
+<span class="fc" id="L14">        this.setTaskName(taskName);</span>
+<span class="fc" id="L15">        this.setTaskDesc(taskDesc);</span>
+        
+        //no setter, testing conditions here, taskId can't be null, longer than 10 characters, or negative
+<span class="fc bfc" id="L18" title="All 6 branches covered.">        if (taskId == null || taskId.length() &gt; 10 || Long.parseLong(taskId, 36) &lt; 0) {</span>
+<span class="fc" id="L19">            throw new IllegalArgumentException(&quot;Invalid Task ID! Must be a positive ID string of 10 characters or less.&quot;);</span>
+        }
+<span class="fc" id="L21">        this.taskId = taskId;</span>
+<span class="fc" id="L22">    }</span>
+
+    //Getters and setters follow past this point
+    //All setters check for valid input, to ensure that a task isn't updated with invalid data.
+    public String getTaskName() {
+<span class="fc" id="L27">        return this.taskName;</span>
+    }
+    
+    public void setTaskName(String taskName) {
+<span class="fc bfc" id="L31" title="All 4 branches covered.">        if (taskName == null || taskName.length() &gt; 20) {</span>
+<span class="fc" id="L32">            throw new IllegalArgumentException(&quot;Invalid Task name! Must be a string of 20 characters or less!&quot;);</span>
+        }
+<span class="fc" id="L34">        this.taskName = taskName;</span>
+<span class="fc" id="L35">    }</span>
+
+    public String getTaskDesc() {
+<span class="fc" id="L38">        return this.taskDesc;</span>
+    }
+    
+    public void setTaskDesc(String taskDesc) {
+<span class="fc bfc" id="L42" title="All 4 branches covered.">        if (taskDesc == null || taskDesc.length() &gt; 50) {</span>
+<span class="fc" id="L43">            throw new IllegalArgumentException(&quot;Invalid Task Description! Must be a string of 50 characters or less!&quot;);</span>
+        }
+<span class="fc" id="L45">        this.taskDesc = taskDesc;</span>
+<span class="fc" id="L46">    }</span>
+    
+    public String getTaskId() {
+<span class="fc" id="L49">        return this.taskId;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

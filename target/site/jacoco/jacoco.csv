@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+projectone,com.alicek.contactService,Contact,0,110,0,22,0,30,0,21,0,10
+projectone,com.alicek.contactService,ContactService,12,121,2,7,1,30,2,10,0,6
+projectone,com.alicek.taskService,Task,0,77,0,14,0,21,0,13,0,6
+projectone,com.alicek.taskService,TaskService,13,119,3,6,2,28,3,8,0,6
+projectone,com.alicek.appointmentService,Appt,0,70,0,14,0,18,0,13,0,6
+projectone,com.alicek.appointmentService,ApptService,1,82,2,4,1,20,2,6,0,5

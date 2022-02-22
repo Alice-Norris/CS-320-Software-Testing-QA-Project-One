@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ApptService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectone</a> &gt; <a href="index.source.html" class="el_package">com.alicek.appointmentService</a> &gt; <span class="el_source">ApptService.java</span></div><h1>ApptService.java</h1><pre class="source lang-java linenums">package com.alicek.appointmentService;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.stream.LongStream;
+
+//Appt service meant to provide creation, update, and deletion of appts
+<span class="fc" id="L9">public class ApptService {</span>
+    
+    //in-memory appt storage
+<span class="fc" id="L12">    HashMap&lt;String, Appt&gt; appts = new HashMap&lt;String, Appt&gt;();</span>
+
+   
+    //apptId generated here for new appointments as an alphanumeric string, ensuring apptId isn't
+    //already used, repeating until an unused ID is found
+    private String generateApptId() {
+        while(true){
+             //create LongStream of random Longs within the bounds. The upper bound is the max decimal number
+            //that can be represented by an alphanumeric (base 36) number.
+<span class="fc" id="L21">            LongStream apptIdLongGenerator = new Random().longs(0L, 3656158440062975L);</span>
+            //get the first stable result of the generator as a Long type.
+<span class="fc" id="L23">            Long apptIdLong = apptIdLongGenerator.findFirst().getAsLong();</span>
+<span class="fc" id="L24">            String apptId = Long.toString(apptIdLong, 36);</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">            if (!appts.containsKey(apptId)){</span>
+<span class="fc" id="L26">                return apptId;</span>
+            }
+<span class="nc" id="L28">        }</span>
+    }
+
+    //method for adding an instance of appointment. Takes a string, apptDesc, which is supplied by the user, and a Date.
+    public Appt addAppt(Date apptDate, String apptDesc) {
+<span class="fc" id="L33">        String apptId = this.generateApptId();</span>
+<span class="fc" id="L34">        Appt addedAppt = new Appt(apptDate, apptDesc, apptId);</span>
+<span class="fc" id="L35">        appts.put(apptId, addedAppt);</span>
+<span class="fc" id="L36">        return addedAppt;</span>
+    }
+
+    //Method used to test appointment ids and ensure they both are valid and exist in the appt hashmap
+    //kept separate from deleteAppt for future use
+    private void testApptId(String apptId){
+
+        //throw an exception if the apptId isn't found in memory.
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (!appts.containsKey(apptId)) {</span>
+<span class="fc" id="L45">            throw new IllegalArgumentException(&quot;Appt ID not found in memory!&quot;);</span>
+        }
+
+<span class="fc" id="L48">    }</span>
+
+    //Method used to delete an appointment from in-memory storage (hashmap)
+    //tests appt ID first, so exception is thrown if necessary.
+    //returns &quot;true&quot; if appt was deleted and &quot;false&quot; if not.
+    public Boolean deleteAppt(String apptId) {
+<span class="fc" id="L54">        Boolean deleted = false;</span>
+<span class="fc" id="L55">        testApptId(apptId);  </span>
+<span class="fc" id="L56">        appts.remove(apptId);</span>
+
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (appts.containsKey(apptId) == false){</span>
+<span class="fc" id="L59">            deleted = true;</span>
+        }
+<span class="fc" id="L61">        return deleted;</span>
+    
+    }
+}
+    
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
